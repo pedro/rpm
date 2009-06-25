@@ -12,7 +12,7 @@ common: &default_settings
   # You must specify the licence key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic RPM service.
-  license_key: '<%= license_key %>'
+  license_key: <%%= ENV['NEW_RELIC_LICENSE_KEY'] || 'PASTE_YOUR_KEY_HERE' %>
   
   # Agent Enabled
   # Use this setting to force the agent to run or not run.
@@ -31,7 +31,7 @@ common: &default_settings
   # "All UI" then specify a semicolon separated list of up to three
   # distinct names.  This setting does not prevent you from manually
   # defining applications.
-  app_name: My Application
+  app_name: <%%= ENV['NEW_RELIC_APPNAME'] || 'My Application' %>
 
   # When 'enabled' is turned on, the agent collects performance data
   # by inserting lightweight tracers on key methods inside the rails
